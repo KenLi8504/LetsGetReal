@@ -24,7 +24,7 @@ public class RealNumber{
         return true;
       }
     }
-    if ( (Math.abs(this.getValue()*1.00001) > Math.abs(other.getValue())) && (Math.abs(this.getValue()*.99999) < Math.abs(other.getValue())) ){
+    if ( (Math.abs(this.getValue()*1.00001) >= Math.abs(other.getValue())) && (Math.abs(this.getValue()*.99999) <= Math.abs(other.getValue())) ){
       return true;
     }
     return false;
@@ -35,6 +35,8 @@ public class RealNumber{
   *the sum of this and the other
   */
   public RealNumber add(RealNumber other){
+    RealNumber sum = new RealNumber (this.getValue() + other.getValue());
+    return sum;
   }
 
   /*
@@ -58,6 +60,7 @@ public class RealNumber{
   *this minus the other
   */
   public RealNumber subtract(RealNumber other){
-    return null;
+    RealNumber difference = new RealNumber (this.getValue() - other.getValue());
+    return difference;
   }
 }
