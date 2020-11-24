@@ -7,6 +7,16 @@ public class RationalNumber extends RealNumber{
       numerator = 0;
       denominator = 1;
     }
+    else {
+      numerator = nume;
+      denominator = deno;
+      reduce ();
+      if (denominator < 0){
+        numerator = numerator * -1;
+        denominator = denominator * -1;
+      }
+    }
+    /*
     else if ( deno < 0){
       numerator = nume * -1;
       denominator = deno * -1;
@@ -17,6 +27,7 @@ public class RationalNumber extends RealNumber{
       denominator = deno;
       reduce ();
     }
+    */
   }
 
   public double getValue(){
