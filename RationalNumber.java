@@ -15,56 +15,57 @@ public class RationalNumber extends RealNumber{
       numerator = nume;
       denominator = deno;
     }
+    reduce ();
   }
 
   public double getValue(){
     return numerator * 1.0 / denominator;
   }
 
-  /**
-  *@return the numerator
-  */
   public int getNumerator(){
     return numerator;
   }
-  /**
-  *@return the denominator
-  */
+
   public int getDenominator(){
     return denominator;
   }
-  /**
-  *@return a new RationalNumber that has the same numerator
-  *and denominator as this RationalNumber but reversed.
-  */
+
   public RationalNumber reciprocal(){
     RationalNumber FlipTheNum = new RationalNumber(this.getDenominator(),this.getNumerator());
     return FlipTheNum;
   }
-  /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  */
+
   public boolean equals(RationalNumber other){
-    return false;
+    if ( (this.getNumerator() == other.getNumerator() ) && (this.getDenominator() == other.getDenominator() ) ) {
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
-
-  /**
-  *@return the value expressed as "3/4" or "8/3"
-  */
   public String toString(){
-    return "0";
+    return "" + this.getNumerator() + "/" + this.getDenominator();
   }
 
-  /**Calculate the GCD of two integers.
-  *@param a the first integers
-  *@param b the second integer
-  *@return the value of the GCD
-  */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    int greater = 0;
+    int smaller = 0;
+    if (a > b){
+      greater = a;
+      smaller = b;
+    }
+    else{
+      greater = b;
+      smaller = a;
+    }
+    while (greater % smaller != 0){
+      int divisor = greater/smaller;
+      int remainder = greater - (smaller * divisor);
+      greater = smaller;
+      smaller = remainder;
+    }
+    return smaller;
   }
 
   /**
@@ -73,7 +74,9 @@ public class RationalNumber extends RealNumber{
   *reduced after construction.
   */
   private void reduce(){
-
+    int gcd = gcd(numerator,denominator);
+    numerator = numerator / gcd;
+    denominator = denominator / gcd;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
