@@ -38,7 +38,8 @@ public class RationalNumber extends RealNumber{
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return null;
+    RationalNumber FlipTheNum = new RationalNumber(this.getDenominator(),this.getNumerator());
+    return FlipTheNum;
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
