@@ -7,7 +7,7 @@ public class RationalNumber extends RealNumber{
       numerator = 0;
       denominator = 1;
     }
-    else if (nume < 0 && deno <0){
+    else if ( deno < 0){
       numerator = nume * -1;
       denominator = deno * -1;
     }
@@ -15,7 +15,6 @@ public class RationalNumber extends RealNumber{
       numerator = nume;
       denominator = deno;
     }
-    reduce ();
   }
 
   public double getValue(){
@@ -83,26 +82,30 @@ public class RationalNumber extends RealNumber{
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    RationalNumber product = new RationalNumber(this.getNumerator() * other.getNumerator(),this.getDenominator()*other.getDenominator());
+    return product;
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    RationalNumber quotient = new RationalNumber(this.getNumerator() * other.getDenominator(),this.getDenominator()*other.getNumerator());
+    return quotient;
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    RationalNumber sum = new RationalNumber ( (this.getNumerator() * other.getDenominator() + this.getDenominator()* other.getNumerator()) , (this.getDenominator() * other.getDenominator() ) );
+    return sum;
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    RationalNumber difference = new RationalNumber ( (this.getNumerator() * other.getDenominator() - this.getDenominator()*other.getNumerator()) , (this.getDenominator() * other.getDenominator() ) );
+    return difference;
   }
 }
