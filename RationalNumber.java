@@ -50,6 +50,9 @@ public class RationalNumber extends RealNumber{
   }
 
   private static int gcd(int a, int b){
+    if ( a == 0 || b == 0){
+      return 1;
+    }
     int pos = 0;
     if (a * b >= 0){
       pos = 1;
@@ -78,8 +81,8 @@ public class RationalNumber extends RealNumber{
 
   private void reduce(){
     int gcd = gcd(numerator,denominator);
-    numerator = numerator / gcd;
-    denominator = denominator / gcd;
+      numerator = numerator / gcd;
+      denominator = denominator / gcd;
   }
 
   public RationalNumber multiply(RationalNumber other){
