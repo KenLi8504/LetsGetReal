@@ -35,6 +35,11 @@ public class RationalNumber extends Number{
   }
 
   public boolean equals(RationalNumber other){
+    if (this.getNumerator() == 0){
+      if (other.getNumerator() == 0){
+        return true;
+      }
+    }
     if ( (this.getNumerator() == other.getNumerator() ) && (this.getDenominator() == other.getDenominator() ) ) {
       return true;
     }
