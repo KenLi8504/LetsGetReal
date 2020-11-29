@@ -7,7 +7,7 @@ public abstract class Number{
         return true;
       }
     }
-    if ( (Math.abs(this.getValue()*1.00001) >= Math.abs(other.getValue())) && (Math.abs(this.getValue()*.99999) <= Math.abs(other.getValue())) ){
+    if (  (this.getValue() - other.getValue() <= ( .00001 * this.getValue() ) ) && (this.getValue() - other.getValue() >= ( -.00001 * this.getValue() ) ) ){
       return true;
     }
     return false;
